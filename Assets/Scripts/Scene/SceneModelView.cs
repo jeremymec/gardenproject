@@ -19,6 +19,6 @@ public class SceneModelView : MonoBehaviour, IScene {
         }
     }
 
-    public event EventHandler<SceneChangedEventArgs> OnSceneChange;
+    public event EventHandler<SceneChangedEventArgs> OnSceneChange = (s, e) => { };
 
 }

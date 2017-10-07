@@ -8,7 +8,7 @@ public class SceneController {
     {
         this.sceneModelView = modelView;
 
-        modelView.OnSceneChange += HandleSceneChange;
+        sceneModelView.OnSceneChange += HandleSceneChange;
     }
 
     private void HandleSceneChange(object sender, SceneChangedEventArgs e)
