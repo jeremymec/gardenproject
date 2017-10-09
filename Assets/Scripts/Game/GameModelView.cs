@@ -6,6 +6,13 @@ using UnityEngine;
 public class GameModelView : MonoBehaviour, IGame {
 
     SceneController sceneController;
+    CharacterController characterController;
+
+    public void InitCharacter()
+    {
+        characterController = new CharacterController();
+        characterController.InitModelView(this.gameObject);
+    }
 
     public void InitScene()
     {

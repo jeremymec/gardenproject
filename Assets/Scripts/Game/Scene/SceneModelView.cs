@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneModelView : MonoBehaviour, IScene {
 
-    int SceneIndex;
+    public int SceneIndex;
 
     public int getSceneIndex()
     {
@@ -16,7 +16,7 @@ public class SceneModelView : MonoBehaviour, IScene {
     public void changeScene(int index)
     {
         this.SceneIndex = index;
-        // CHANGE SCENE
+        SceneManager.LoadScene(index, LoadSceneMode.Additive);
     }
 
 }

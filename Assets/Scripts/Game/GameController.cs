@@ -9,11 +9,17 @@ public class GameController {
     public void OnInit()
     {
         createScene();
+        createCharacter();
     }
 
     void createScene()
     {
         gameModelView.InitScene();
+    }
+
+    void createCharacter()
+    {
+        gameModelView.InitCharacter();
     }
 
     public void InitModelView()
