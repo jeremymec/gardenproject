@@ -11,7 +11,7 @@ public class CharacterModelView : MonoBehaviour, ICharacter {
 
     public float speed = 1f;
 
-    void OnAwake()
+    void Awake()
     {
         this.rigidbody2D = GetComponent<Rigidbody2D>();
     }
