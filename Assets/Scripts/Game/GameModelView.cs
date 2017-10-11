@@ -5,19 +5,60 @@ using UnityEngine;
 
 public class GameModelView : MonoBehaviour, IGame {
 
-    SceneController sceneController;
-    CharacterController characterController;
-
-    public void InitCharacter()
+    private CameraController cameraControllerValue;
+    public CameraController CameraController
     {
-        characterController = new CharacterController();
-        characterController.InitModelView(this.gameObject);
+        get
+        {
+            return cameraControllerValue;
+        }
+        set
+        {
+            cameraControllerValue = value;
+        }
     }
 
-    public void InitScene()
+    private CharacterController characterControllerValue;
+    public CharacterController CharacterController
     {
-        sceneController = new SceneController();
-        sceneController.InitModelView(this.gameObject);
+        get
+        {
+            return characterControllerValue;
+        }
+        set
+        {
+            characterControllerValue = value;
+        }
     }
 
+    private SceneController sceneControllerValue;
+    public SceneController SceneController
+    {
+        get
+        {
+            return sceneControllerValue;
+        }
+        set
+        {
+            sceneControllerValue = value;
+        }
+    }
+
+    public void InitCharacter(GameController gameController)
+    {
+        CharacterController = new CharacterController(gameController);
+        CharacterController.InitModelView(this.gameObject);
+    }
+
+    public void InitScene(GameController gameController)
+    {
+        SceneController = new SceneController(gameController);
+        SceneController.InitModelView(this.gameObject);
+    }
+
+    public void InitCamera(GameController gameController)
+    {
+        CameraController = new CameraController(gameController);
+        CameraController.InitModelView(this.gameObject);
+    }
 }

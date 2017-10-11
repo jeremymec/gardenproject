@@ -10,16 +10,22 @@ public class GameController {
     {
         createScene();
         createCharacter();
+        createCamera();
     }
 
     void createScene()
     {
-        gameModelView.InitScene();
+        gameModelView.InitScene(this);
     }
 
     void createCharacter()
     {
-        gameModelView.InitCharacter();
+        gameModelView.InitCharacter(this);
+    }
+
+    void createCamera()
+    {
+        gameModelView.InitCamera(this);
     }
 
     public void InitModelView()
@@ -35,5 +41,20 @@ public class GameController {
         GameObject gameobject = GameObject.Instantiate(Resources.Load("Prefabs/Game") as GameObject, parent.transform);
         gameModelView = gameobject.GetComponent<GameModelView>();
         OnInit();
+    }
+
+    public CameraController GetCameraController()
+    {
+        return this.gameModelView.CameraController;
+    }
+
+    public CharacterController GetCharacterController()
+    {
+        return this.gameModelView.CharacterController;
+    }
+
+    public SceneController GetSceneController()
+    {
+        return this.gameModelView.SceneController;
     }
 }

@@ -4,6 +4,13 @@ using UnityEngine;
 
 public abstract class Controller {
 
+    GameController overlord;
+
+    public Controller(GameController gc)
+    {
+        this.overlord = gc;
+    }
+
     public abstract void InitModelView();
 
     public abstract void InitModelView(GameObject parent);

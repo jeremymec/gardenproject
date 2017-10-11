@@ -6,9 +6,14 @@ public class CameraController : Controller {
 
     private ICamera cameraModelView;
 
+    public CameraController(GameController gameController) : base(gameController)
+    {
+        
+    }
+
     void OnInit()
     {
-
+        cameraModelView.OnUpdate += HandleUpdate;
     }
 
     public override void InitModelView()
@@ -24,6 +29,11 @@ public class CameraController : Controller {
         GameObject gameobject = GameObject.Instantiate(Resources.Load("Prefabs/Camera") as GameObject, parent.transform);
         cameraModelView = gameobject.GetComponent<CameraModelView>();
         OnInit();
+    }
+
+    void HandleUpdate(object sender, UpdateEventArgs args)
+    {
+
     }
 
 }

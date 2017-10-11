@@ -2,23 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController {
+public class CharacterController : Controller {
 
     private ICharacter characterModelView;
+
+    public CharacterController(GameController gameController) : base(gameController)
+    {
+
+    }
 
     void OnInit()
     {
         characterModelView.onMove += HandleMove;
     }
 
-    public void InitModelView()
+    public override void InitModelView()
     {
         GameObject gameobject = GameObject.Instantiate(Resources.Load("Prefabs/Character") as GameObject);
         characterModelView = gameobject.GetComponent<CharacterModelView>();
         OnInit();
     }
 
-    public void InitModelView(GameObject parent)
+    public override void InitModelView(GameObject parent)
     {
         GameObject gameobject = GameObject.Instantiate(Resources.Load("Prefabs/Character") as GameObject, parent.transform);
         characterModelView = gameobject.GetComponent<CharacterModelView>();
